@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testcases project-id="not-set">
+  <properties>
+    <property name="dry-run" value="false" />
+    <property name="lookup-method" value="custom" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+  </properties>
+  <testcase id="test_polarion.py::test_polarion" status-id="approved">
+    <title>test_polarion.py::test_polarion</title>
+    <description>&lt;pre&gt;:test-field: value&lt;/pre&gt;</description>
+    <test-steps />
+    <custom-fields>
+      <custom-field id="test-field" content="test-replace" />
+    </custom-fields>
+    <linked-work-items />
+  </testcase>
+</testcases>

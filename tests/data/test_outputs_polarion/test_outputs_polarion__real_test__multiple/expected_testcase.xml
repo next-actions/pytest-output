@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testcases project-id="not-set">
+  <properties>
+    <property name="dry-run" value="false" />
+    <property name="lookup-method" value="custom" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+  </properties>
+  <testcase id="test_polarion.py::test_polarion_1" status-id="approved">
+    <title>1/Test title.</title>
+    <description>&lt;pre&gt;:title: 1/Test title.
+:setup:
+  1. 1/Setup 1
+  2. 1/Setup 2
+:steps:
+  1. 1/Step 1
+  2. 1/Step 2
+:expectedresults:
+  1. 1/Result 1
+  2. 1/Result 2
+:requirement: 1/TEST-DOC&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">1/Step 1</test-step-column>
+        <test-step-column id="expectedResult">1/Result 1</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">1/Step 2</test-step-column>
+        <test-step-column id="expectedResult">1/Result 2</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. 1/Setup 1&#10;2. 1/Setup 2&lt;/pre&gt;" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="1/TEST-DOC" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="test_polarion.py::test_polarion_2" status-id="approved">
+    <title>2/Test title.</title>
+    <description>&lt;pre&gt;:title: 2/Test title.
+:setup:
+  1. 2/Setup 1
+  2. 2/Setup 2
+:steps:
+  1. 2/Step 1
+  2. 2/Step 2
+:expectedresults:
+  1. 2/Result 1
+  2. 2/Result 2
+:requirement: 2/TEST-DOC&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">2/Step 1</test-step-column>
+        <test-step-column id="expectedResult">2/Result 1</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">2/Step 2</test-step-column>
+        <test-step-column id="expectedResult">2/Result 2</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. 2/Setup 1&#10;2. 2/Setup 2&lt;/pre&gt;" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="2/TEST-DOC" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="test_polarion.py::test_polarion_3" status-id="approved">
+    <title>3/Test title.</title>
+    <description>&lt;pre&gt;:title: 3/Test title.
+:setup:
+  1. 3/Setup 1
+  2. 3/Setup 2
+:steps:
+  1. 3/Step 1
+  2. 3/Step 2
+:expectedresults:
+  1. 3/Result 1
+  2. 3/Result 2
+:requirement: 3/TEST-DOC&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">3/Step 1</test-step-column>
+        <test-step-column id="expectedResult">3/Result 1</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">3/Step 2</test-step-column>
+        <test-step-column id="expectedResult">3/Result 2</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. 3/Setup 1&#10;2. 3/Setup 2&lt;/pre&gt;" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="3/TEST-DOC" />
+    </linked-work-items>
+  </testcase>
+</testcases>

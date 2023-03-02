@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <properties>
+    <property name="polarion-create-defects" value="false" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+    <property name="polarion-dry-run" value="false" />
+    <property name="polarion-include-skipped" value="true" />
+    <property name="polarion-lookup-method" value="custom" />
+    <property name="polarion-project-id" value="not-set" />
+    <property name="polarion-testrun-id" value="test-run-id" />
+    <property name="polarion-testrun-status-id" value="finished" />
+    <property name="polarion-user-id" value="test-user" />
+  </properties>
+  <testsuite errors="0" failures="0" skipped="0" tests="1" time="9.35199996092706e-05">
+    <testcase file="test_polarion.py" line="0" name="test_polarion" time="9.35199996092706e-05">
+      <properties>
+        <property name="polarion-testcase-id" value="test_polarion.py::test_polarion" />
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

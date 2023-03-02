@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testcases project-id="not-set">
+  <properties>
+    <property name="dry-run" value="false" />
+    <property name="lookup-method" value="custom" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+  </properties>
+  <testcase id="test_polarion.py::test_polarion" status-id="approved">
+    <title>Test title.</title>
+    <description>&lt;pre&gt;:title: Test title.
+:setup:
+  1. Setup 1
+  2. Setup 2
+:steps:
+  1. Step 1
+  2. Step 2
+:expectedresults:
+  1. Result 1
+  2. Result 2
+:requirement: TEST-DOC&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Step 1</test-step-column>
+        <test-step-column id="expectedResult">Result 1</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Step 2</test-step-column>
+        <test-step-column id="expectedResult">Result 2</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Setup 1&#10;2. Setup 2&lt;/pre&gt;" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="TEST-DOC" />
+    </linked-work-items>
+  </testcase>
+</testcases>

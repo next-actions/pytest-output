@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <properties>
+    <property name="polarion-create-defects" value="false" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+    <property name="polarion-dry-run" value="false" />
+    <property name="polarion-include-skipped" value="true" />
+    <property name="polarion-lookup-method" value="custom" />
+    <property name="polarion-project-id" value="not-set" />
+    <property name="polarion-testrun-id" value="test-run-id" />
+    <property name="polarion-testrun-status-id" value="finished" />
+    <property name="polarion-user-id" value="not-set" />
+  </properties>
+  <testsuite errors="0" failures="0" skipped="1" tests="1" time="0.00011709499995049555">
+    <testcase file="test_polarion.py" line="2" name="test_polarion" time="0.00011709499995049555">
+      <skipped message="Skipped: unconditional skip">/tmp/pytest-of-pbrezina/pytest-0/test_outputs_polarion__real_test__skipped0/test_polarion.py:3: Skipped: unconditional skip</skipped>
+      <properties>
+        <property name="polarion-testcase-id" value="test_polarion.py::test_polarion" />
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>
