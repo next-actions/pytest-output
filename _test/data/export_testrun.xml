@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuites>
+  <properties>
+    <property name="polarion-create-defects" value="false" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+    <property name="polarion-dry-run" value="false" />
+    <property name="polarion-include-skipped" value="true" />
+    <property name="polarion-lookup-method" value="custom" />
+    <property name="polarion-project-id" value="RHEL_IDM" />
+    <property name="polarion-testrun-id" value="test-run-16801778982675352" />
+    <property name="polarion-testrun-status-id" value="finished" />
+    <property name="polarion-user-id" value="idm-jenkins" />
+  </properties>
+  <testsuite errors="3" failures="2" skipped="1" tests="8" time="0.0012850999992224388">
+    <testcase file="../tests/test_basic.py" line="18" name="test_success[1]" time="0.0001385039995511761">
+      <system-out>test stderr
+</system-out>
+      <system-err>test stderr
+</system-err>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_success[1]" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="18" name="test_success[2]" time="0.00011826800073322374">
+      <system-out>test stderr
+</system-out>
+      <system-err>test stderr
+</system-err>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_success[2]" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="45" name="test_failure_assert" time="0.00019538299966370687">
+      <failure message="assert False">&gt;   ???
+E   assert False
+
+/home/pbrezina/workspace/pytest-output/tests/test_basic.py:67: AssertionError</failure>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_failure_assert" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="69" name="test_failure_exception" time="0.00011389999963284936">
+      <failure message="ValueError: Error message">&gt;   ???
+E   ValueError: Error message
+
+/home/pbrezina/workspace/pytest-output/tests/test_basic.py:91: ValueError</failure>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_failure_exception" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="93" name="test_skipped" time="0.00011477900079626124">
+      <skipped message="Skipped: Because.">/home/pbrezina/workspace/pytest-output/tests/test_basic.py:94: Skipped: Because.</skipped>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_skipped" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="118" name="test_error_setup" time="0.00018186599845648743">
+      <error message="failed on setup with &quot;ValueError: error&quot;">&gt;   ???
+E   ValueError: error
+
+/home/pbrezina/workspace/pytest-output/tests/test_basic.py:10: ValueError</error>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_error_setup" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="142" name="test_error_teardown" time="0.0001264000002265675">
+      <error message="failed on teardown with &quot;ValueError: error&quot;">&gt;   ???
+E   ValueError: error
+
+/home/pbrezina/workspace/pytest-output/tests/test_basic.py:16: ValueError</error>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_error_teardown" />
+      </properties>
+    </testcase>
+    <testcase file="../tests/test_basic.py" line="167" name="test_error_setup_teardown" time="0.00029600000016216654">
+      <error message="failed on setup with &quot;ValueError: error&quot;">&gt;   ???
+E   ValueError: error
+
+/home/pbrezina/workspace/pytest-output/tests/test_basic.py:10: ValueError</error>
+      <properties>
+        <property name="polarion-testcase-id" value="importtest::tests/test_basic.py::test_error_setup_teardown" />
+      </properties>
+    </testcase>
+  </testsuite>
+</testsuites>

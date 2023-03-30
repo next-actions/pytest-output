@@ -1,0 +1,410 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testcases project-id="RHEL_IDM">
+  <properties>
+    <property name="dry-run" value="false" />
+    <property name="lookup-method" value="custom" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+  </properties>
+  <testcase id="importtest::tests/test_basic.py::test_success[1]" status-id="approved">
+    <title>IDM-SSSD-TC: Success</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;arg&lt;/strong&gt;: 1&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;My custom string.
+
+:title: Success
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L18" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_success[2]" status-id="approved">
+    <title>IDM-SSSD-TC: Success</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;arg&lt;/strong&gt;: 2&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;My custom string.
+
+:title: Success
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L18" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_failure_assert" status-id="approved">
+    <title>IDM-SSSD-TC: Failure assertion</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Failure assertion
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L45" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_failure_exception" status-id="approved">
+    <title>IDM-SSSD-TC: Failure exception</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Failure exception
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L69" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_skipped" status-id="approved">
+    <title>IDM-SSSD-TC: Skipped</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Skipped
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L93" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_error_setup" status-id="approved">
+    <title>IDM-SSSD-TC: Error setup</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Error setup
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L118" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_error_teardown" status-id="approved">
+    <title>IDM-SSSD-TC: Error teardown</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Error teardown
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+       Some other line
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH
+  Some other line</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L142" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="importtest::tests/test_basic.py::test_error_setup_teardown" status-id="approved">
+    <title>IDM-SSSD-TC: Error setup teardown</title>
+    <description>&lt;pre&gt;My custom string.
+
+:title: Error setup teardown
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/../tests/test_basic.py#L167" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+</testcases>

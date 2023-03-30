@@ -1,0 +1,53 @@
+project: RHEL_IDM
+user: idm-jenkins
+tests_url: https://github.com/SSSD/sssd/tree/master/src/tests/system
+testcase:
+  properties:
+  required:
+  # Required in each test case
+    # title:
+    #   meta: meta_title
+    #   validate: regex
+    #   transform:
+    #     pattern: regex
+    #     replace: regex
+    #   default: jinja/str
+    title:
+      transform:
+        unless: "IDM-SSSD-TC: .*"
+        pattern: "^(.*)$"
+        replace: "IDM-SSSD-TC: \\1"
+      validate: "IDM-SSSD-TC: (.+)"
+    setup:
+      format: pre
+    steps:
+    expectedresults:
+    customerscenario:
+    # These have default values if they are not set in test case
+    id:
+      default: "importtest::{{ item.id }}"
+    caseautomation:
+      default: "automated"
+    casecomponent:
+      default: "sssd"
+    status:
+      default: "approved"
+    subsystemteam:
+      default: "sst_idm_sssd"
+    upstream:
+      default: "yes"
+    caseimportance:
+      default: "medium"
+    requirement:
+      default: "IDM-SSSD-REQ : KRB5 Provider"
+    automation_script:
+      default: "{{ tests_url }}/{{ item.location.file }}#L{{ item.location.line }}"
+    testtype:
+      default: "functional"
+    caselevel:
+      default: "system"
+  optional:
+    teardown:
+      format: pre
+testrun:
+  properties:

@@ -1,0 +1,2432 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testcases project-id="RHEL_IDM">
+  <properties>
+    <property name="dry-run" value="false" />
+    <property name="lookup-method" value="custom" />
+    <property name="polarion-custom-lookup-method-field-id" value="testCaseID" />
+  </properties>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kinit_overwrite[memory] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Second call to kinit with the same principal does not create new ccache.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: memory&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Second call to kinit with the same principal does not create new ccache.
+:setup:
+    1. Add Kerberos principal "tuser" to KDC
+    2. Add local user "tuser"
+    3. Set ccache_storage in sssd.conf to @ccache_storage
+    4. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "tuser"
+    4. Check that TGT was aquired
+    5. Count existing credential caches
+    6. Repeat steps 3-5
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. User obtains TGT
+    4. TGT is present
+    5. Returns 1, single ccache is available
+    6. Same results as for steps 3-5
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "tuser"</test-step-column>
+        <test-step-column id="expectedResult">User obtains TGT</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Check that TGT was aquired</test-step-column>
+        <test-step-column id="expectedResult">TGT is present</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 1, single ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Repeat steps 3-5</test-step-column>
+        <test-step-column id="expectedResult">Same results as for steps 3-5</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;tuser&quot; to KDC&#10;2. Add local user &quot;tuser&quot;&#10;3. Set ccache_storage in sssd.conf to @ccache_storage&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L11" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kinit_overwrite[secdb] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Second call to kinit with the same principal does not create new ccache.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: secdb&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Second call to kinit with the same principal does not create new ccache.
+:setup:
+    1. Add Kerberos principal "tuser" to KDC
+    2. Add local user "tuser"
+    3. Set ccache_storage in sssd.conf to @ccache_storage
+    4. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "tuser"
+    4. Check that TGT was aquired
+    5. Count existing credential caches
+    6. Repeat steps 3-5
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. User obtains TGT
+    4. TGT is present
+    5. Returns 1, single ccache is available
+    6. Same results as for steps 3-5
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "tuser"</test-step-column>
+        <test-step-column id="expectedResult">User obtains TGT</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Check that TGT was aquired</test-step-column>
+        <test-step-column id="expectedResult">TGT is present</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 1, single ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Repeat steps 3-5</test-step-column>
+        <test-step-column id="expectedResult">Same results as for steps 3-5</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;tuser&quot; to KDC&#10;2. Add local user &quot;tuser&quot;&#10;3. Set ccache_storage in sssd.conf to @ccache_storage&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L11" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kinit_collection[memory] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Multiple principals and service tickets can be stored in a ccache collection.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: memory&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Multiple principals and service tickets can be stored in a ccache collection.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos principal "carol" to KDC
+    4. Add Kerberos service principal "host/myhost" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Kinit as "bob"
+    5. Kinit as "carol"
+    6. Obtain ticket for "host/myhost"
+    7. Destroy current primary ccache
+    8. Kinit as "carol"
+    9. Kdestroy all ccaches
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. 1 ccache exists, "alice" is the primary ccache, TGT is only ticket in "alice" ccache
+    4. 2 ccaches exist, "bob" is the primary ccache, TGT is only ticket in "bob" ccache
+    5. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "carol" ccache
+    6. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice" and "bob" ccache,
+       TGT and "host/myhost" are only tickets in "carol" ccache
+    7. 2 cacches exit
+    8. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice", "bob" and "carol" ccache
+    9. No ccache is available
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">1 ccache exists, "alice" is the primary ccache, TGT is only ticket in "alice" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exist, "bob" is the primary ccache, TGT is only ticket in "bob" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "carol"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/myhost"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice" and "bob" ccache,
+  TGT and "host/myhost" are only tickets in "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Destroy current primary ccache</test-step-column>
+        <test-step-column id="expectedResult">2 cacches exit</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "carol"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice", "bob" and "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kdestroy all ccaches</test-step-column>
+        <test-step-column id="expectedResult">No ccache is available</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos principal &quot;carol&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/myhost&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L58" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kinit_collection[secdb] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Multiple principals and service tickets can be stored in a ccache collection.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: secdb&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Multiple principals and service tickets can be stored in a ccache collection.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos principal "carol" to KDC
+    4. Add Kerberos service principal "host/myhost" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Kinit as "bob"
+    5. Kinit as "carol"
+    6. Obtain ticket for "host/myhost"
+    7. Destroy current primary ccache
+    8. Kinit as "carol"
+    9. Kdestroy all ccaches
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. 1 ccache exists, "alice" is the primary ccache, TGT is only ticket in "alice" ccache
+    4. 2 ccaches exist, "bob" is the primary ccache, TGT is only ticket in "bob" ccache
+    5. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "carol" ccache
+    6. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice" and "bob" ccache,
+       TGT and "host/myhost" are only tickets in "carol" ccache
+    7. 2 cacches exit
+    8. 3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice", "bob" and "carol" ccache
+    9. No ccache is available
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">1 ccache exists, "alice" is the primary ccache, TGT is only ticket in "alice" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exist, "bob" is the primary ccache, TGT is only ticket in "bob" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "carol"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/myhost"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice" and "bob" ccache,
+  TGT and "host/myhost" are only tickets in "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Destroy current primary ccache</test-step-column>
+        <test-step-column id="expectedResult">2 cacches exit</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "carol"</test-step-column>
+        <test-step-column id="expectedResult">3 ccaches exist, "carol" is the primary ccache, TGT is only ticket in "alice", "bob" and "carol" ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kdestroy all ccaches</test-step-column>
+        <test-step-column id="expectedResult">No ccache is available</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos principal &quot;carol&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/myhost&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L58" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kswitch[memory] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Switching between primary ccaches.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: memory&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Switching between primary ccaches.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos service principal "host/alice" to KDC
+    4. Add Kerberos service principal "host/bob" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Kinit as "bob"
+    5. Kswitch to "alice"
+    6. Obtain ticket for "host/alice"
+    7. Kswitch to "bob"
+    8. Obtain ticket for "host/bob"
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. TGT for "alice" was obtained, "alice" is the primary ccache
+    4. TGT for "bob" was obtained, "bob" is the primary ccache
+    5. "alice" is the primary ccache
+    6. 2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has only TGT
+    7. "bob" is the primary ccache
+    8. 2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has TGT and "host/bob"
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">TGT for "alice" was obtained, "alice" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">TGT for "bob" was obtained, "bob" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kswitch to "alice"</test-step-column>
+        <test-step-column id="expectedResult">"alice" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/alice"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has only TGT</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kswitch to "bob"</test-step-column>
+        <test-step-column id="expectedResult">"bob" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/bob"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has TGT and "host/bob"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos service principal &quot;host/alice&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/bob&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L148" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kswitch[secdb] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Switching between primary ccaches.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: secdb&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Switching between primary ccaches.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos service principal "host/alice" to KDC
+    4. Add Kerberos service principal "host/bob" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Kinit as "bob"
+    5. Kswitch to "alice"
+    6. Obtain ticket for "host/alice"
+    7. Kswitch to "bob"
+    8. Obtain ticket for "host/bob"
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. TGT for "alice" was obtained, "alice" is the primary ccache
+    4. TGT for "bob" was obtained, "bob" is the primary ccache
+    5. "alice" is the primary ccache
+    6. 2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has only TGT
+    7. "bob" is the primary ccache
+    8. 2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has TGT and "host/bob"
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">TGT for "alice" was obtained, "alice" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">TGT for "bob" was obtained, "bob" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kswitch to "alice"</test-step-column>
+        <test-step-column id="expectedResult">"alice" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/alice"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has only TGT</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kswitch to "bob"</test-step-column>
+        <test-step-column id="expectedResult">"bob" is the primary ccache</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/bob"</test-step-column>
+        <test-step-column id="expectedResult">2 ccaches exit, "alice" has TGT and "host/alice" tickets, "bob" has TGT and "host/bob"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos service principal &quot;host/alice&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/bob&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L148" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__subsidiaries[memory] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Subsidiary ccaches are usable and KCM: without UID can identify the collection.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: memory&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Subsidiary ccaches are usable and KCM: without UID can identify the collection.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos service principal "host/alice" to KDC
+    4. Add Kerberos service principal "host/bob" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Obtain ticket for "host/alice"
+    5. Kinit as "bob"
+    6. Obtain ticket for "host/bob"
+    7. Count existing credential caches
+    8. Iterate over ccaches using KRB5CCNAME environment variable
+    9. List all principals with KRB5CCNAME=KCM:
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. Is successful
+    4. Is successful
+    5. Is successful
+    6. Is successful
+    7. Returns 2
+    8. "alice" ccache contains TGT and "host/alice", "bob" ccache contains TGT and "host/bob"
+    9. "alice" and "bob" ccaches are available
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/alice"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/bob"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 2</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Iterate over ccaches using KRB5CCNAME environment variable</test-step-column>
+        <test-step-column id="expectedResult">"alice" ccache contains TGT and "host/alice", "bob" ccache contains TGT and "host/bob"</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List all principals with KRB5CCNAME=KCM:</test-step-column>
+        <test-step-column id="expectedResult">"alice" and "bob" ccaches are available</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos service principal &quot;host/alice&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/bob&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L217" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__subsidiaries[secdb] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Subsidiary ccaches are usable and KCM: without UID can identify the collection.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: secdb&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Subsidiary ccaches are usable and KCM: without UID can identify the collection.
+:setup:
+    1. Add Kerberos principal "alice" to KDC
+    2. Add Kerberos principal "bob" to KDC
+    3. Add Kerberos service principal "host/alice" to KDC
+    4. Add Kerberos service principal "host/bob" to KDC
+    5. Add local user "tuser"
+    6. Set ccache_storage in sssd.conf to @ccache_storage
+    7. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Kinit as "alice"
+    4. Obtain ticket for "host/alice"
+    5. Kinit as "bob"
+    6. Obtain ticket for "host/bob"
+    7. Count existing credential caches
+    8. Iterate over ccaches using KRB5CCNAME environment variable
+    9. List all principals with KRB5CCNAME=KCM:
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. Is successful
+    4. Is successful
+    5. Is successful
+    6. Is successful
+    7. Returns 2
+    8. "alice" ccache contains TGT and "host/alice", "bob" ccache contains TGT and "host/bob"
+    9. "alice" and "bob" ccaches are available
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "alice"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/alice"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "bob"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Obtain ticket for "host/bob"</test-step-column>
+        <test-step-column id="expectedResult">Is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 2</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Iterate over ccaches using KRB5CCNAME environment variable</test-step-column>
+        <test-step-column id="expectedResult">"alice" ccache contains TGT and "host/alice", "bob" ccache contains TGT and "host/bob"</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List all principals with KRB5CCNAME=KCM:</test-step-column>
+        <test-step-column id="expectedResult">"alice" and "bob" ccaches are available</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;alice&quot; to KDC&#10;2. Add Kerberos principal &quot;bob&quot; to KDC&#10;3. Add Kerberos service principal &quot;host/alice&quot; to KDC&#10;4. Add Kerberos service principal &quot;host/bob&quot; to KDC&#10;5. Add local user &quot;tuser&quot;&#10;6. Set ccache_storage in sssd.conf to @ccache_storage&#10;7. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L217" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kdestroy_nocache[memory] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Destroying non-existing cache must not throw an error.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: memory&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Destroying non-existing cache must not throw an error.
+:setup:
+    1. Add local user "tuser"
+    2. Set ccache_storage in sssd.conf to @ccache_storage
+    3. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Run kdestroy
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. Returns with return code 0
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run kdestroy</test-step-column>
+        <test-step-column id="expectedResult">Returns with return code 0</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add local user &quot;tuser&quot;&#10;2. Set ccache_storage in sssd.conf to @ccache_storage&#10;3. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L293" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__kdestroy_nocache[secdb] (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Destroying non-existing cache must not throw an error.</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;ccache_storage&lt;/strong&gt;: secdb&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: client
+
+:title: Destroying non-existing cache must not throw an error.
+:setup:
+    1. Add local user "tuser"
+    2. Set ccache_storage in sssd.conf to @ccache_storage
+    3. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Count existing credential caches
+    3. Run kdestroy
+:expectedresults:
+    1. User is logged into the host
+    2. Returns 0, no ccache is available
+    3. Returns with return code 0
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Count existing credential caches</test-step-column>
+        <test-step-column id="expectedResult">Returns 0, no ccache is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run kdestroy</test-step-column>
+        <test-step-column id="expectedResult">Returns with return code 0</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add local user &quot;tuser&quot;&#10;2. Set ccache_storage in sssd.conf to @ccache_storage&#10;3. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L293" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_kcm.py::test_kcm__tgt_renewal (client)" status-id="approved">
+    <title>IDM-SSSD-TC: Automatic ticket-granting ticket renewal.</title>
+    <description>&lt;pre&gt;Topology: client
+
+:title: Automatic ticket-granting ticket renewal.
+:setup:
+    1. Add Kerberos principal "tuser" to KDC
+    2. Add local user "tuser"
+    3. Enable TGT renewal in KCM
+    4. Start SSSD
+:steps:
+    1. Authenticate as "tuser" over SSH
+    2. Kinit as "tuser" and request renewable ticket
+    3. Wait until automatic renewal is triggered and check that is was renewed
+:expectedresults:
+    1. User is logged into the host
+    2. TGT is available
+    3. TGT was renewed
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "tuser" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Kinit as "tuser" and request renewable ticket</test-step-column>
+        <test-step-column id="expectedResult">TGT is available</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Wait until automatic renewal is triggered and check that is was renewed</test-step-column>
+        <test-step-column id="expectedResult">TGT was renewed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Add Kerberos principal &quot;tuser&quot; to KDC&#10;2. Add local user &quot;tuser&quot;&#10;3. Enable TGT renewal in KCM&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_kcm.py#L328" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__user_allowed (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: One user is allowed to run command, other user is not</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: One user is allowed to run command, other user is not
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls root" as user-1
+    3. List sudo rules for "user-2"
+    4. Run "sudo /bin/ls root" as user-2
+:expectedresults:
+    1. User is able to run /bin/ls as root
+    2. Command is successful
+    3. User is not able to run /bin/ls as root
+    4. Command failed
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-2"</test-step-column>
+        <test-step-column id="expectedResult">User is not able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-2</test-step-column>
+        <test-step-column id="expectedResult">Command failed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L16" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__user_allowed (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: One user is allowed to run command, other user is not</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: One user is allowed to run command, other user is not
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls root" as user-1
+    3. List sudo rules for "user-2"
+    4. Run "sudo /bin/ls root" as user-2
+:expectedresults:
+    1. User is able to run /bin/ls as root
+    2. Command is successful
+    3. User is not able to run /bin/ls as root
+    4. Command failed
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-2"</test-step-column>
+        <test-step-column id="expectedResult">User is not able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-2</test-step-column>
+        <test-step-column id="expectedResult">Command failed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L16" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__user_allowed (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: One user is allowed to run command, other user is not</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: One user is allowed to run command, other user is not
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls root" as user-1
+    3. List sudo rules for "user-2"
+    4. Run "sudo /bin/ls root" as user-2
+:expectedresults:
+    1. User is able to run /bin/ls as root
+    2. Command is successful
+    3. User is not able to run /bin/ls as root
+    4. Command failed
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-2"</test-step-column>
+        <test-step-column id="expectedResult">User is not able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as user-2</test-step-column>
+        <test-step-column id="expectedResult">Command failed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L16" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__duplicate_sudo_user (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: User is mentioned twice in sudoUser attribute, once with shortname and once with fully qualified name</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: User is mentioned twice in sudoUser attribute, once with shortname and once with fully qualified name
+:setup:
+    1. Create users "user-1", "user-2", "user-3", "user-4"
+    3. Create sudorule to allow "user-1", "user-2", "user-2@test", "user-3" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1", "user-2", "user-3"
+    2. Run "sudo /bin/ls root" as "user-1", "user-2", "user-3"
+    3. List sudo rules for "user-4"
+    4. Run "sudo /bin/ls root" as "user-4"
+:expectedresults:
+    1. User is able to run /bin/ls as root
+    2. Command is successful
+    3. User is not able to run /bin/ls as root
+    4. Command failed
+:customerscenario: False
+
+Note: This test can not run on IPA since it will not allow this case to happen.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1", "user-2", "user-3"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as "user-1", "user-2", "user-3"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-4"</test-step-column>
+        <test-step-column id="expectedResult">User is not able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as "user-4"</test-step-column>
+        <test-step-column id="expectedResult">Command failed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create users &quot;user-1&quot;, &quot;user-2&quot;, &quot;user-3&quot;, &quot;user-4&quot;&#10;3. Create sudorule to allow &quot;user-1&quot;, &quot;user-2&quot;, &quot;user-2@test&quot;, &quot;user-3&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L53" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__duplicate_sudo_user (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: User is mentioned twice in sudoUser attribute, once with shortname and once with fully qualified name</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: User is mentioned twice in sudoUser attribute, once with shortname and once with fully qualified name
+:setup:
+    1. Create users "user-1", "user-2", "user-3", "user-4"
+    3. Create sudorule to allow "user-1", "user-2", "user-2@test", "user-3" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1", "user-2", "user-3"
+    2. Run "sudo /bin/ls root" as "user-1", "user-2", "user-3"
+    3. List sudo rules for "user-4"
+    4. Run "sudo /bin/ls root" as "user-4"
+:expectedresults:
+    1. User is able to run /bin/ls as root
+    2. Command is successful
+    3. User is not able to run /bin/ls as root
+    4. Command failed
+:customerscenario: False
+
+Note: This test can not run on IPA since it will not allow this case to happen.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1", "user-2", "user-3"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as "user-1", "user-2", "user-3"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-4"</test-step-column>
+        <test-step-column id="expectedResult">User is not able to run /bin/ls as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls root" as "user-4"</test-step-column>
+        <test-step-column id="expectedResult">Command failed</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create users &quot;user-1&quot;, &quot;user-2&quot;, &quot;user-3&quot;, &quot;user-4&quot;&#10;3. Create sudorule to allow &quot;user-1&quot;, &quot;user-2&quot;, &quot;user-2@test&quot;, &quot;user-3&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L53" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__case_sensitive_false (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules work correctly for case insensitive domains</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: Sudo rules work correctly for case insensitive domains
+:setup:
+    1. Create user "USER-1"
+    2. Create sudorule to allow "user-1" run "/bin/less on all hosts
+    3. Create sudorule to allow "USER-1" run "/bin/more on all hosts
+    4. Enable SSSD sudo responder
+    5. Set "case_sensitive" to "false"
+    6. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/less root" as user-1
+    3. Run "sudo /bin/more root" as user-1
+    4. List sudo rules for "USER-1"
+    5. Run "sudo /bin/less root" as USER-1
+    6. Run "sudo /bin/more root" as USER-1
+:expectedresults:
+    1. User is able to run /bin/less and /bin/more as root
+    2. Command is successful
+    3. Command is successful
+    4. User is able to run /bin/less and /bin/more as root
+    5. Command is successful
+    6. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "USER-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;USER-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/less on all hosts&#10;3. Create sudorule to allow &quot;USER-1&quot; run &quot;/bin/more on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Set &quot;case_sensitive&quot; to &quot;false&quot;&#10;6. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L99" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__case_sensitive_false (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules work correctly for case insensitive domains</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: Sudo rules work correctly for case insensitive domains
+:setup:
+    1. Create user "USER-1"
+    2. Create sudorule to allow "user-1" run "/bin/less on all hosts
+    3. Create sudorule to allow "USER-1" run "/bin/more on all hosts
+    4. Enable SSSD sudo responder
+    5. Set "case_sensitive" to "false"
+    6. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/less root" as user-1
+    3. Run "sudo /bin/more root" as user-1
+    4. List sudo rules for "USER-1"
+    5. Run "sudo /bin/less root" as USER-1
+    6. Run "sudo /bin/more root" as USER-1
+:expectedresults:
+    1. User is able to run /bin/less and /bin/more as root
+    2. Command is successful
+    3. Command is successful
+    4. User is able to run /bin/less and /bin/more as root
+    5. Command is successful
+    6. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "USER-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;USER-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/less on all hosts&#10;3. Create sudorule to allow &quot;USER-1&quot; run &quot;/bin/more on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Set &quot;case_sensitive&quot; to &quot;false&quot;&#10;6. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L99" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__case_sensitive_false (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules work correctly for case insensitive domains</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: Sudo rules work correctly for case insensitive domains
+:setup:
+    1. Create user "USER-1"
+    2. Create sudorule to allow "user-1" run "/bin/less on all hosts
+    3. Create sudorule to allow "USER-1" run "/bin/more on all hosts
+    4. Enable SSSD sudo responder
+    5. Set "case_sensitive" to "false"
+    6. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/less root" as user-1
+    3. Run "sudo /bin/more root" as user-1
+    4. List sudo rules for "USER-1"
+    5. Run "sudo /bin/less root" as USER-1
+    6. Run "sudo /bin/more root" as USER-1
+:expectedresults:
+    1. User is able to run /bin/less and /bin/more as root
+    2. Command is successful
+    3. Command is successful
+    4. User is able to run /bin/less and /bin/more as root
+    5. Command is successful
+    6. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as user-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "USER-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/less and /bin/more as root</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/less root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/more root" as USER-1</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;USER-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/less on all hosts&#10;3. Create sudorule to allow &quot;USER-1&quot; run &quot;/bin/more on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Set &quot;case_sensitive&quot; to &quot;false&quot;&#10;6. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L99" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__rules_refresh (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules refresh works</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: Sudo rules refresh works
+:setup:
+    1. Create user "user-1"
+    2. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    3. Enable SSSD sudo responder
+    4. Set "entry_cache_sudo_timeout" to "2"
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Modify the rule to allow only "/bin/less" command
+    3. Wait until the cached rule is expired (3 seconds)
+    4. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Rule was modified
+    3. Time passed
+    4. User is bale to run only /bin/less
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Modify the rule to allow only "/bin/less" command</test-step-column>
+        <test-step-column id="expectedResult">Rule was modified</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Wait until the cached rule is expired (3 seconds)</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is bale to run only /bin/less</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;3. Enable SSSD sudo responder&#10;4. Set &quot;entry_cache_sudo_timeout&quot; to &quot;2&quot;&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L146" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__rules_refresh (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules refresh works</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: Sudo rules refresh works
+:setup:
+    1. Create user "user-1"
+    2. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    3. Enable SSSD sudo responder
+    4. Set "entry_cache_sudo_timeout" to "2"
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Modify the rule to allow only "/bin/less" command
+    3. Wait until the cached rule is expired (3 seconds)
+    4. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Rule was modified
+    3. Time passed
+    4. User is bale to run only /bin/less
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Modify the rule to allow only "/bin/less" command</test-step-column>
+        <test-step-column id="expectedResult">Rule was modified</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Wait until the cached rule is expired (3 seconds)</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is bale to run only /bin/less</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;3. Enable SSSD sudo responder&#10;4. Set &quot;entry_cache_sudo_timeout&quot; to &quot;2&quot;&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L146" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__rules_refresh (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo rules refresh works</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: Sudo rules refresh works
+:setup:
+    1. Create user "user-1"
+    2. Create sudorule to allow "user-1" run "/bin/ls on all hosts
+    3. Enable SSSD sudo responder
+    4. Set "entry_cache_sudo_timeout" to "2"
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Modify the rule to allow only "/bin/less" command
+    3. Wait until the cached rule is expired (3 seconds)
+    4. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Rule was modified
+    3. Time passed
+    4. User is bale to run only /bin/less
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Modify the rule to allow only "/bin/less" command</test-step-column>
+        <test-step-column id="expectedResult">Rule was modified</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Wait until the cached rule is expired (3 seconds)</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is bale to run only /bin/less</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts&#10;3. Enable SSSD sudo responder&#10;4. Set &quot;entry_cache_sudo_timeout&quot; to &quot;2&quot;&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L146" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__sudo_user_is_group (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: POSIX groups can be set in sudoUser attribute</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: POSIX groups can be set in sudoUser attribute
+:setup:
+    1. Create user "user-1"
+    2. Create group "group-1" with "user-1" as a member
+    3. Create sudorule to allow "group-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls" as "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls" as "user-1"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create group &quot;group-1&quot; with &quot;user-1&quot; as a member&#10;3. Create sudorule to allow &quot;group-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L182" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__sudo_user_is_group (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: POSIX groups can be set in sudoUser attribute</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: POSIX groups can be set in sudoUser attribute
+:setup:
+    1. Create user "user-1"
+    2. Create group "group-1" with "user-1" as a member
+    3. Create sudorule to allow "group-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls" as "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls" as "user-1"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create group &quot;group-1&quot; with &quot;user-1&quot; as a member&#10;3. Create sudorule to allow &quot;group-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L182" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__sudo_user_is_group (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: POSIX groups can be set in sudoUser attribute</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: POSIX groups can be set in sudoUser attribute
+:setup:
+    1. Create user "user-1"
+    2. Create group "group-1" with "user-1" as a member
+    3. Create sudorule to allow "group-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls" as "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls" as "user-1"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create group &quot;group-1&quot; with &quot;user-1&quot; as a member&#10;3. Create sudorule to allow &quot;group-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L182" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__sudo_user_is_nonposix_group (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Non-POSIX groups can be set in sudoUser attribute</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: Non-POSIX groups can be set in sudoUser attribute
+:setup:
+    1. Create user "user-1"
+    2. Create group "group-1" with "user-1" as a member
+    3. Create sudorule to allow "group-1" run "/bin/ls on all hosts
+    4. Enable SSSD sudo responder
+    5. Disable ldap_id_mapping
+    6. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+    2. Run "sudo /bin/ls" as "user-1"
+:expectedresults:
+    1. User is able to run only /bin/ls
+    2. Command is successful
+:customerscenario: False&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run only /bin/ls</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls" as "user-1"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create group &quot;group-1&quot; with &quot;user-1&quot; as a member&#10;3. Create sudorule to allow &quot;group-1&quot; run &quot;/bin/ls on all hosts&#10;4. Enable SSSD sudo responder&#10;5. Disable ldap_id_mapping&#10;6. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L219" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__runasuser_shortname (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoRunAsUser contains shortname</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: sudoRunAsUser contains shortname
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts as "user-2" using shortname
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls as "user-2"
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as "user-2"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts as &quot;user-2&quot; using shortname&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L252" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__runasuser_shortname (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoRunAsUser contains shortname</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: sudoRunAsUser contains shortname
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts as "user-2" using shortname
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls as "user-2"
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as "user-2"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts as &quot;user-2&quot; using shortname&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L252" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__runasuser_shortname (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoRunAsUser contains shortname</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: sudoRunAsUser contains shortname
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts as "user-2" using shortname
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls as "user-2"
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as "user-2"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts as &quot;user-2&quot; using shortname&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L252" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__runasuser_fqn (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoRunAsUser contains fully qualified name</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: sudoRunAsUser contains fully qualified name
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts as "user-2" using fully qualified name
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls as "user-2"
+:customerscenario: False
+
+Note: This test can not run on IPA since it does not allow fully qualified name here.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as "user-2"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts as &quot;user-2&quot; using fully qualified name&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L280" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__runasuser_fqn (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoRunAsUser contains fully qualified name</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: sudoRunAsUser contains fully qualified name
+:setup:
+    1. Create user "user-1"
+    2. Create user "user-2"
+    3. Create sudorule to allow "user-1" run "/bin/ls on all hosts as "user-2" using fully qualified name
+    4. Enable SSSD sudo responder
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls as "user-2"
+:customerscenario: False
+
+Note: This test can not run on IPA since it does not allow fully qualified name here.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls as "user-2"</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create user &quot;user-2&quot;&#10;3. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts as &quot;user-2&quot; using fully qualified name&#10;4. Enable SSSD sudo responder&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L280" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__sudonotbefore_shorttime (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: sudoNotBefore and sudoNotAfter do not require minutes and seconds</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+Test that suduNotBefore and sudoNotAfter works even without minutes and
+seconds specifier.
+
+:title: sudoNotBefore and sudoNotAfter do not require minutes and seconds
+:setup:
+    1. Create user "user-1"
+    2. Create sudorule to allow "user-1" run "/bin/ls on all hosts within given time in %Y%m%d%H format
+    3. Enable SSSD sudo responder
+    4. Set "sudo_timed" to "true"
+    5. Start SSSD
+:steps:
+    1. List sudo rules for "user-1"
+:expectedresults:
+    1. User is able to run /bin/ls within given time
+:customerscenario: False
+
+Note: IPA does not support these attributes and AD/Samba time schema
+requires minutes and seconds to be set. Therefore this test only applies to
+LDAP.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">List sudo rules for "user-1"</test-step-column>
+        <test-step-column id="expectedResult">User is able to run /bin/ls within given time</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create user &quot;user-1&quot;&#10;2. Create sudorule to allow &quot;user-1&quot; run &quot;/bin/ls on all hosts within given time in %Y%m%d%H format&#10;3. Enable SSSD sudo responder&#10;4. Set &quot;sudo_timed&quot; to &quot;true&quot;&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="false" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L313" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__refresh_random_offset (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Random offset is applied to sudo full and smart refresh.</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: Random offset is applied to sudo full and smart refresh.
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to 2
+    2. Set ldap_sudo_smart_refresh_interval to 1
+    3. Set ldap_sudo_random_offset to 5
+    4. Start SSSD
+:steps:
+    1. Grep domain log to see when the full refresh was scheduled
+    2. Grep domain log to see when the smart refresh was scheduled
+:expectedresults:
+    1. It was scheduled to multiple random times
+    2. It was scheduled to multiple random times
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the full refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to 2&#10;2. Set ldap_sudo_smart_refresh_interval to 1&#10;3. Set ldap_sudo_random_offset to 5&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L368" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__refresh_random_offset (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Random offset is applied to sudo full and smart refresh.</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: Random offset is applied to sudo full and smart refresh.
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to 2
+    2. Set ldap_sudo_smart_refresh_interval to 1
+    3. Set ldap_sudo_random_offset to 5
+    4. Start SSSD
+:steps:
+    1. Grep domain log to see when the full refresh was scheduled
+    2. Grep domain log to see when the smart refresh was scheduled
+:expectedresults:
+    1. It was scheduled to multiple random times
+    2. It was scheduled to multiple random times
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the full refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to 2&#10;2. Set ldap_sudo_smart_refresh_interval to 1&#10;3. Set ldap_sudo_random_offset to 5&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L368" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__refresh_random_offset (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Random offset is applied to sudo full and smart refresh.</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: Random offset is applied to sudo full and smart refresh.
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to 2
+    2. Set ldap_sudo_smart_refresh_interval to 1
+    3. Set ldap_sudo_random_offset to 5
+    4. Start SSSD
+:steps:
+    1. Grep domain log to see when the full refresh was scheduled
+    2. Grep domain log to see when the smart refresh was scheduled
+:expectedresults:
+    1. It was scheduled to multiple random times
+    2. It was scheduled to multiple random times
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the full refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart refresh was scheduled</test-step-column>
+        <test-step-column id="expectedResult">It was scheduled to multiple random times</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to 2&#10;2. Set ldap_sudo_smart_refresh_interval to 1&#10;3. Set ldap_sudo_random_offset to 5&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L368" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[2-1] (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 1&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: ipa
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[2-1] (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 1&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: ldap
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[2-1] (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 1&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: samba
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[3-2] (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 3&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: ipa
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[3-2] (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 3&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: ldap
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__prefer_full_refresh_over_smart_refresh[3-2] (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo smart refresh does not occur at the same time as full refresh</title>
+    <description>&lt;div&gt;&lt;strong&gt;Parametrized arguments:&lt;/strong&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;full_interval&lt;/strong&gt;: 3&lt;/li&gt;&lt;li&gt;&lt;strong&gt;smart_interval&lt;/strong&gt;: 2&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;pre&gt;Topology: samba
+
+:title: Sudo smart refresh does not occur at the same time as full refresh
+:setup:
+    1. Set ldap_sudo_full_refresh_interval to @full_interval
+    2. Set ldap_sudo_smart_refresh_interval to @smart_interval
+    3. Set ldap_sudo_random_offset to 0
+    4. Start SSSD
+:steps:
+    1. Sleep for 10 seconds
+    2. Grep domain log to see when the smart and full refresh happened
+:expectedresults:
+    1. Time passed
+    2. Smart refresh does not occur at the same time as full refresh
+:customerscenario: True&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Sleep for 10 seconds</test-step-column>
+        <test-step-column id="expectedResult">Time passed</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Grep domain log to see when the smart and full refresh happened</test-step-column>
+        <test-step-column id="expectedResult">Smart refresh does not occur at the same time as full refresh</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Set ldap_sudo_full_refresh_interval to @full_interval&#10;2. Set ldap_sudo_smart_refresh_interval to @smart_interval&#10;3. Set ldap_sudo_random_offset to 0&#10;4. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L409" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__local_users_negative_cache (ipa)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo responder hits negative cache for local users</title>
+    <description>&lt;pre&gt;Topology: ipa
+
+:title: Sudo responder hits negative cache for local users
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True
+
+First sudo goes through SSSD to lookup up the user in LDAP, since it is not
+there and the user is local, it is stored in negative cache with very long
+expiration time. Subsequent sudo requests will hit the negative cache and no
+further lookup is performed.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L477" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__local_users_negative_cache (ldap)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo responder hits negative cache for local users</title>
+    <description>&lt;pre&gt;Topology: ldap
+
+:title: Sudo responder hits negative cache for local users
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True
+
+First sudo goes through SSSD to lookup up the user in LDAP, since it is not
+there and the user is local, it is stored in negative cache with very long
+expiration time. Subsequent sudo requests will hit the negative cache and no
+further lookup is performed.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L477" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+  <testcase id="sssd::tests/test_sudo.py::test_sudo__local_users_negative_cache (samba)" status-id="approved">
+    <title>IDM-SSSD-TC: Sudo responder hits negative cache for local users</title>
+    <description>&lt;pre&gt;Topology: samba
+
+:title: Sudo responder hits negative cache for local users
+:setup:
+    1. Create local user "user-1"
+    2. Add local rule to /etc/sudoers to allow all commands for "user-1"
+    3. Enable sudo responder
+    4. Set entry_negative_timeout to 0 to disable standard negative cache
+    5. Start SSSD
+:steps:
+    1. Authenticate as "user-1" over SSH
+    2. Run "sudo /bin/ls /root"
+    3. Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again
+:expectedresults:
+    1. User is logged into the host
+    2. Command is successful, user is stored in negative cache for local users
+    3. No ldap packets for "user-1" user resolution are sent
+:customerscenario: True
+
+First sudo goes through SSSD to lookup up the user in LDAP, since it is not
+there and the user is local, it is stored in negative cache with very long
+expiration time. Subsequent sudo requests will hit the negative cache and no
+further lookup is performed.&lt;/pre&gt;</description>
+    <test-steps>
+      <test-step>
+        <test-step-column id="step">Authenticate as "user-1" over SSH</test-step-column>
+        <test-step-column id="expectedResult">User is logged into the host</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Run "sudo /bin/ls /root"</test-step-column>
+        <test-step-column id="expectedResult">Command is successful, user is stored in negative cache for local users</test-step-column>
+      </test-step>
+      <test-step>
+        <test-step-column id="step">Start tcpdump to capture ldap packets and run "sudo /bin/ls /root" multiple times again</test-step-column>
+        <test-step-column id="expectedResult">No ldap packets for "user-1" user resolution are sent</test-step-column>
+      </test-step>
+    </test-steps>
+    <custom-fields>
+      <custom-field id="setup" content="&lt;pre&gt;1. Create local user &quot;user-1&quot;&#10;2. Add local rule to /etc/sudoers to allow all commands for &quot;user-1&quot;&#10;3. Enable sudo responder&#10;4. Set entry_negative_timeout to 0 to disable standard negative cache&#10;5. Start SSSD&lt;/pre&gt;" />
+      <custom-field id="customerscenario" content="true" />
+      <custom-field id="caseautomation" content="automated" />
+      <custom-field id="casecomponent" content="sssd" />
+      <custom-field id="subsystemteam" content="sst_idm_sssd" />
+      <custom-field id="upstream" content="yes" />
+      <custom-field id="caseimportance" content="medium" />
+      <custom-field id="automation_script" content="https://github.com/SSSD/sssd/tree/master/src/tests/system/tests/test_sudo.py#L477" />
+      <custom-field id="testtype" content="functional" />
+      <custom-field id="caselevel" content="system" />
+    </custom-fields>
+    <linked-work-items>
+      <linked-work-item lookup-method="name" role-id="verifies" workitem-id="IDM-SSSD-REQ : KRB5 Provider" />
+    </linked-work-items>
+  </testcase>
+</testcases>
