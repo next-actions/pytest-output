@@ -465,7 +465,9 @@ class PolarionTestRunContainer(PolarionContainer):
         super().__init__(config)
 
         self.data: OutputData = data
-        self.testruns: list[PolarionTestRun] = [PolarionTestRun(self.config, x) for x in data.items.values()]
+        self.testruns: list[PolarionTestRun] = [
+            PolarionTestRun(self.config, x) for x in data.items.values() if x.result is not None
+        ]
 
     @property
     def properties(self) -> PolarionProperties:
